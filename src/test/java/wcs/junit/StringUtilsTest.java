@@ -20,9 +20,25 @@ public class StringUtilsTest {
         Assert.assertEquals("eoo", result3);
     }
     @Test(expected = IllegalArgumentException.class)
-    public void testVowelsException() {
+      public void testVowelsException() {
         // Cas d'exception : paramètre en entrée non défini (null)
         StringUtils.vowels(null);
+    }
+
+    @Test
+      public void testUniqueVowel() {
+        // Cas non passant : la méthode ne remplit pas son contrat
+
+        // Cas de test 1 : chaîne de caractères vide
+        String result1 = StringUtils.Uniquevowel("");
+        Assert.assertEquals("", result1);
+
+        // Cas de test 2 : chaîne de caractères sans voyelles
+        String result2 = StringUtils.Uniquevowel("Hll WRLD");
+        Assert.assertEquals("", result2);
+
+        String result3 = StringUtils.Uniquevowel("Hello Worldu");
+        Assert.assertEquals("eou", result3);
     }
 
 }
